@@ -1,92 +1,150 @@
-# 🌟 Disk Scheduling Algorithm Visualizer 🌟
+# 💽 Disk Scheduling Visualizer
+ 
+An interactive Python GUI to animate and compare disk scheduling algorithms- FCFS, SSTF, SCAN, C-SCAN, LOOK, and C-LOOK with real-time seek plots and PDF report export.
+ 
+<p align="center">
 
-This Python application, "Disk Scheduling," provides a comprehensive tool for visualizing and comparing various disk scheduling algorithms. Developed with `tkinter` for the GUI and `matplotlib` for dynamic visualizations, it allows users to experiment with different algorithms and understand their performance in terms of seek time. Here's how to interact with this tool:
+<img src="https://img.shields.io/badge/Python-3.7+-111827?style=for-the-badge&logo=python&logoColor=FFD43B" />
+<img src="https://img.shields.io/badge/GUI-Tkinter-111827?style=for-the-badge&logo=python&logoColor=4FC08D" />
+<img src="https://img.shields.io/badge/License-MIT-111827?style=for-the-badge&logo=opensourceinitiative&logoColor=white" />
+<img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-111827?style=for-the-badge&logo=windows&logoColor=00A4EF" />
 
----
+</p>
 
-**🚀 START HERE: SET UP YOUR SIMULATION**  
-1. **Input Requests**  
-   *In the "Enter Request Points" field:*  
-   `Type` a comma-separated list (e.g., `98, 183, 37, 122, 14`).  
-   *(Pro Tip: Use the sample data first to see it in action!)*  
-
-2. **Configure Settings**  
-   - **Initial Head Position**: Where does the read/write head start? *(e.g., `53`)*  
-   - **Direction** (for SCAN/C-SCAN/LOOK/C-LOOK): Choose `LEFT` or `RIGHT` from the dropdown.  
-   - **Cylinder Range**: Define your disk size (Min: `0`, Max: `200` by default).  
 
 ---
-
-**🔧 PRACTICE TAB: MASTER ONE ALGORITHM**  
-*Want to see how SSTF reduces seek time? Or why SCAN acts like an elevator?*  
-
-1. **Select an Algorithm**  
-   Choose from:  
-   - `FCFS` (First-Come, First-Served)  
-   - `SSTF` (Shortest Seek Time First)  
-   - `SCAN` (Elevator Algorithm)  
-   - `C-SCAN` (Circular SCAN)  
-   - `LOOK` / `C-LOOK`  
-
-2. **Click "RUN"**  
-   Watch the animation! The red line shows the head movement, and dots mark requested tracks.  
-
-3. **Analyze the Results**  
-   - Total seek time displayed instantly.  
-   - Track access sequence listed below.  
-   - *Example: "SSTF: 236 seeks | Sequence: 53 → 37 → 14 → ..."*  
-
-4. **Save Your Report**  
-   Hit "SAVE" to generate a PDF with your inputs, results, and a summary.  
-
+ 
+## 📖 Overview
+ 
+**Disk Scheduling Visualizer** is a desktop application built for students and educators studying Operating Systems. It brings disk scheduling algorithms to life with animated head movement plots, instant seek-time results, side-by-side algorithm comparisons, and exportable PDF reports - all through a clean tkinter GUI.
+ 
 ---
-
-**📊 COMPARISON TAB: BATTLE OF ALGORITHMS**  
-*Which algorithm is fastest for your workload? Let’s find out!*  
-
-1. **Check Multiple Algorithms**  
-   *(Try selecting SSTF, SCAN, and LOOK together!)*  
-
-2. **Click "RUN COMPARISON"**  
-   A bar chart appears:  
-   - **Bars**: Total seek time for each algorithm.  
-   - **Green Highlight**: The winner (lowest seek time).  
-
-3. **Compare Behavior**  
-   *Why does C-SCAN sometimes outperform SCAN? Use different directions to test!*  
-
+ 
+## ✨ Features
+ 
+- 🎬 **Live Animation**: Watch the disk head sweep across tracks in real time
+- 📊 **Algorithm Comparison**: Run multiple algorithms simultaneously and compare seek times via bar chart
+- 🏆 **Winner Highlight**: Automatically highlights the most efficient algorithm in green
+- 📄 **PDF Report Export**: Save your simulation inputs, results, and sequence to a PDF
+- 🔊 **Audio Narration**: Text-to-speech support via `pyttsx3` and `gTTS`
+- 🎛️ **Configurable Parameters**: Set head position, direction, cylinder range, and request queue freely
 ---
-
-**🎓 LEARNING MODE: PRO TIPS**  
-- **Test Edge Cases**: What if requests are *already sorted*? Try FCFS vs SSTF.  
-- **Reverse Direction**: Change from `RIGHT` to `LEFT` in SCAN/C-SCAN to see how the path changes.  
-- **Extreme Requests**: Add a request close to the `MAX` cylinder (e.g., `200`) to watch C-SCAN wrap around.  
-
+ 
+## 🧮 Supported Algorithms
+ 
+| Algorithm | Description |
+|-----------|-------------|
+| **FCFS** | First-Come, First-Served - serves requests in arrival order |
+| **SSTF** | Shortest Seek Time First - always picks the nearest request |
+| **SCAN** | Elevator algorithm - sweeps in one direction, then reverses |
+| **C-SCAN** | Circular SCAN - sweeps one way, jumps back to the start |
+| **LOOK** | Like SCAN but only goes as far as the last request |
+| **C-LOOK** | Circular LOOK - jumps back to the lowest request, not cylinder 0 |
+ 
 ---
-
-**⚙️ TECHNICAL NOTES** 
-1. **Requirements:**
-   -  `Python 3.7+`
-   - `tkinter (usually bundled with Python)`
-   - `matplotlib`
-   -`numpy`
-   - `pyttsx3`
-   - `gTTS`
-   - `fpdf`
-   - `Pillow (for matplotlib integration with tkinter if issues arise)`
-  
-2. **Install Dependencies**: Run `pip install matplotlib numpy pyttsx3 gTTS fpdf Pillow` if you haven’t.  
-3. **OS Compatibility**: Works best on Windows/macOS with Python 3.7+.  
-
+ 
+## 🖥️ Screenshots
+ 
+> _Practice Tab — single algorithm animation with seek sequence_
+ 
+> _Comparison Tab — bar chart of all algorithms with the winner highlighted_
+ 
 ---
-
-**📁 SAMPLE WORKFLOW**  
-1. Input: `98, 183, 37, 122, 14, 124, 65, 67`  
-2. Head Start: `53` | Direction: `RIGHT` | Max Cylinder: `200`  
-3. **Practice Tab**: Run `SCAN` → See the head sweep to `200` before reversing.  
-4. **Comparison Tab**: Select `FCFS`, `SSTF`, `SCAN` → SSTF wins with the lowest seeks!  
-
+ 
+## ⚙️ Requirements
+ 
+- Python 3.7+
+- `tkinter` _(bundled with most Python installations)_
+- `matplotlib`
+- `numpy`
+- `pyttsx3`
+- `gTTS`
+- `fpdf`
+- `Pillow`
 ---
-
-**🔗 GET STARTED NOW**  
-Clone the code, run `OS_PROJECT.py`, and start optimizing virtual disk arms like a pro! 🖥️  
+ 
+## 🚀 Getting Started
+ 
+**1. Clone the repository**
+```bash
+git clone https://github.com/MusaIslamFahad/disk-scheduling-visualizer.git
+cd disk-scheduling-visualizer
+```
+ 
+**2. Install dependencies**
+```bash
+pip install matplotlib numpy pyttsx3 gTTS fpdf Pillow
+```
+ 
+**3. Run the application**
+```bash
+python OS_PROJECT.py
+```
+ 
+---
+ 
+## 🕹️ How to Use
+ 
+### Practice Tab
+1. Enter a comma-separated list of disk request points (e.g., `98, 183, 37, 122, 14`)
+2. Set the **Initial Head Position** (e.g., `53`)
+3. Choose a **Direction** (`LEFT` or `RIGHT`) for directional algorithms
+4. Select an algorithm from the dropdown
+5. Click **RUN** to watch the animation
+6. Click **SAVE** to export a PDF report
+### Comparison Tab
+1. Use the same inputs as above
+2. Check all the algorithms you want to compare
+3. Click **RUN COMPARISON** to see a bar chart — the green bar is the winner
+---
+ 
+## 📁 Sample Simulation
+ 
+| Parameter | Value |
+|-----------|-------|
+| Request Queue | `98, 183, 37, 122, 14, 124, 65, 67` |
+| Head Start | `53` |
+| Direction | `RIGHT` |
+| Max Cylinder | `200` |
+ 
+**Expected outcome:** SSTF typically produces the lowest total seek time; FCFS the highest. SCAN shows the classic elevator sweep pattern.
+ 
+---
+ 
+## 📂 Project Structure
+ 
+```
+disk-scheduling-visualizer/
+│
+├── -VISUALISATION-OF-DISK-SCHEDULING-ALGORITHM-USING-GUI-PYTHON-main/
+│   └── OS_PROJECT.py       # Main application entry point
+│
+└── README.md
+```
+ 
+---
+ 
+## 🤝 Contributing
+ 
+Contributions are welcome! To contribute:
+ 
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+---
+ 
+## 📜 License
+ 
+This project is licensed under the [MIT License](LICENSE).
+ 
+---
+ 
+## 👨‍💻 Author
+ 
+**Musa Islam Fahad**
+- GitHub: [@MusaIslamFahad](https://github.com/MusaIslamFahad)
+---
+ 
+> ⭐ If you found this project helpful, please give it a star. It motivates further development!
