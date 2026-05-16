@@ -1,3 +1,5 @@
+<div align="center">
+ 
 # 💽 Disk Scheduling Visualizer
  
 An interactive Python GUI to animate and compare disk scheduling algorithms- FCFS, SSTF, SCAN, C-SCAN, LOOK, and C-LOOK with real-time seek plots and PDF report export.
@@ -11,6 +13,7 @@ An interactive Python GUI to animate and compare disk scheduling algorithms- FCF
 
 </p>
 
+</div>
 
 ---
  
@@ -42,15 +45,7 @@ An interactive Python GUI to animate and compare disk scheduling algorithms- FCF
 | **C-LOOK** | Circular LOOK - jumps back to the lowest request, not cylinder 0 |
  
 ---
- 
-## 🖥️ Screenshots
- 
-> _Practice Tab — single algorithm animation with seek sequence_
- 
-> _Comparison Tab — bar chart of all algorithms with the winner highlighted_
- 
----
- 
+
 ## ⚙️ Requirements
  
 - Python 3.7+
